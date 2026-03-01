@@ -2,7 +2,7 @@
   <h1 align="center">Enhancing Unregistered Hyperspectral Image Super-Resolution via Unmixing-based Abundance Fusion Learning (Official)</h1>
   
   <p align="center">
-    <a href="https://github.com/BITYKZhang">Yingkai Zhang</a>,  
+    <a href="https://yingkai-zhang.github.io">Yingkai Zhang</a>,  
     <a href="http://iipl.net.cn/index/team_details/id/140.aspx">Tao Zhang</a>,
     <a href="https://github.com/BITYKZhang/UAFL/">Jing Nie</a>,
     <a href="https://ying-fu.github.io/">Ying Fu</a>*.
