@@ -31,11 +31,11 @@ This repository contains the official PyTorch implementation of "*Enhancing Unre
 
 If you find our work useful for your research, please consider citing the following paper
 
-<!-- ```bibtex
-@article{zhang2025real,
-  title={Real Noise Decoupling for Hyperspectral Image Denoising},
+```bibtex
+@article{zhang2026enhancing,
+  title={Enhancing Unregistered Hyperspectral Image Super-Resolution via Unmixing-based Abundance Fusion Learning},
   author={Zhang, Yingkai and Zhang, Tao and Nie, Jing and Fu, Ying},
-  journal={arXiv preprint arXiv:2511.17196},
-  year={2025}
-} -->
+  journal={arXiv preprint arXiv:2603.07918},
+  year={2026}
+}
 
