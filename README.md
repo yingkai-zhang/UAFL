@@ -13,7 +13,7 @@
   <h3 align="center">
     <a href="https://github.com/yingkai-zhang/UAFL/" target='_blank'><img src="https://img.shields.io/badge/🐳-Project%20Page-blue"></a>
     <!-- <a href="https://link.springer.com/article/10.1007/s11263-025-02466-8" target='_blank'><img src="https://img.shields.io/badge/Springer-s11263-green.svg"></a> -->
-    <!-- <a href="https://arxiv.org/abs/2511.17196" target='_blank'><img src="https://img.shields.io/badge/arXiv-2511.17196-b31b1b.svg"></a> -->
+    <a href="https://arxiv.org/abs/2603.07918" target='_blank'><img src="https://img.shields.io/badge/arXiv-2603.07918-b31b1b.svg"></a>
   </h3>
 
 </p>
