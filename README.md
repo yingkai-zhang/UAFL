@@ -58,6 +58,25 @@ The main components are:
 4. **Spatial-Channel Modulated Fusion (SCMF)**: dynamically merges
    encoder-decoder features with spatial and channel gating weights.
 
+## Baselines and Code Resources
+
+The following table summarizes the comparison methods used in the paper.
+
+| Category | Method | Venue | Year | Public code |
+| --- | --- | --- | ---: | --- |
+| Single HSI SR | SSPSR | IEEE TCI | 2020 | [GitHub](https://github.com/junjun-jiang/SSPSR) |
+| Single HSI SR | MCNet | Remote Sensing | 2020 | [GitHub](https://github.com/qianngli/MCNet) |
+| Single HSI SR | BiQRNN | IEEE J-STARS | 2021 | [GitHub](https://github.com/zhiyuan0112/Bi-3DQRNN) |
+| Single HSI SR | ESSA | ICCV | 2023 | [GitHub](https://github.com/Rexzhan/ESSAformer) |
+| Reference HSI SR | Optimized RGB Guidance | CVPR | 2019 | [GitHub](https://github.com/ColinTaoZhang/HSI-SR) |
+| Reference HSI SR | NonRegSRNet | IEEE TGRS | 2022 | [GitHub](https://github.com/saber-zero/NonRegSRNet) |
+| Reference HSI SR | MoE-PNP | IEEE TNNLS | 2024 | [GitHub](https://github.com/Jiahuiqu/MoE-PNP) |
+| Reference HSI SR | HSIFN | IEEE TNNLS | 2024 | [GitHub](https://github.com/Zeqiang-Lai/HSI-RefSR) |
+| Reference HSI SR | LRTN | IJCV | 2025 | [GitHub](https://github.com/YuanyeLiu/Low-Rank-Transformer-For-High-Resolution-Hyperspectral-Computational-Imaging) |
+| Reference HSI SR | SRLF | CVPR | 2025 | [GitHub](https://github.com/YuanyeLiu/SRLF-Net) |
+| Reference HSI SR | SSCH | IJCV | 2025 | [GitHub](https://github.com/yingkai-zhang/SSC-HSR) |
+| Reference HSI SR | UAFL (Ours) | CVPR | 2026 | [GitHub](https://github.com/yingkai-zhang/UAFL) |
+
 
 ## Setting
 
@@ -134,27 +153,7 @@ python run.py test -s results/refsr/real/sf4/UAFL -r best
 The evaluation reports PSNR, SSIM, and SAM. The module also logs bicubic/SR
 input metrics for reference.
 
-The example checkpoint and config can be downloaded [Here](https://drive.google.com/drive/folders/19kvaEk97Jgp1svpPBsqD0U7GKVJGgiBb?usp=sharing) and put into `results/refsr/real/sf4/Ours/ckpt` and `results/refsr/real/sf4/Ours`.
-
-## Baselines and Code Resources
-
-The following table summarizes the comparison methods used in the paper.
-
-| Category | Method | Venue | Year | Public code |
-| --- | --- | --- | ---: | --- |
-| Single HSI SR | SSPSR | IEEE TCI | 2020 | [GitHub](https://github.com/junjun-jiang/SSPSR) |
-| Single HSI SR | MCNet | Remote Sensing | 2020 | [GitHub](https://github.com/qianngli/MCNet) |
-| Single HSI SR | BiQRNN | IEEE J-STARS | 2021 | [GitHub](https://github.com/zhiyuan0112/Bi-3DQRNN) |
-| Single HSI SR | ESSA | ICCV | 2023 | [GitHub](https://github.com/Rexzhan/ESSAformer) |
-| Reference HSI SR | Optimized RGB Guidance | CVPR | 2019 | [GitHub](https://github.com/ColinTaoZhang/HSI-SR) |
-| Reference HSI SR | NonRegSRNet | IEEE TGRS | 2022 | [GitHub](https://github.com/saber-zero/NonRegSRNet) |
-| Reference HSI SR | MoE-PNP | IEEE TNNLS | 2024 | [GitHub](https://github.com/Jiahuiqu/MoE-PNP) |
-| Reference HSI SR | HSIFN | IEEE TNNLS | 2024 | [GitHub](https://github.com/Zeqiang-Lai/HSI-RefSR) |
-| Reference HSI SR | LRTN | IJCV | 2025 | [GitHub](https://github.com/YuanyeLiu/Low-Rank-Transformer-For-High-Resolution-Hyperspectral-Computational-Imaging) |
-| Reference HSI SR | SRLF | CVPR | 2025 | [GitHub](https://github.com/YuanyeLiu/SRLF-Net) |
-| Reference HSI SR | SSCH | IJCV | 2025 | [GitHub](https://github.com/yingkai-zhang/SSC-HSR) |
-| Reference HSI SR | UAFL (Ours) | CVPR | 2026 | [GitHub](https://github.com/yingkai-zhang/UAFL) |
-
+The example checkpoint and config can be downloaded [Here](https://drive.google.com/drive/folders/1R1opToi7IU1xHgmjGiJG7CGYTryGvmW-) and put into `results/refsr/real/sf4/Ours/ckpt` and `results/refsr/real/sf4/Ours`.
 
 ## Citation
 
