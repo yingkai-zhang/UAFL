@@ -282,11 +282,9 @@ class CrossWindowAttention(nn.Module):
         relative_position_index = relative_coords.sum(-1)  # Wh*Ww, Wh*Ww
         self.register_buffer("relative_position_index", relative_position_index)
         
-        # --- 修改点: 将 qkv 分离为 q 和 kv ---
         self.qkv = nn.Linear(dim, dim * 3, bias=qkv_bias)
         # self.q = nn.Linear(dim, dim, bias=qkv_bias)
         # self.kv = nn.Linear(dim, dim * 2, bias=qkv_bias)
-        # --- 修改结束 ---
 
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
@@ -306,15 +304,9 @@ class CrossWindowAttention(nn.Module):
             输出特征，形状为 (num_windows*B, N, C)
         """
         B_, N, C = x.shape
-        
-        # --- 修改点: 分别从 x 和 ref 计算 q, k, v ---
-        # 原始qkv计算: qkv = self.qkv(x).reshape(B_, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
-        # q, k, v = qkv[0], qkv[1], qkv[2]
 
-        # --- 修改点: Q, K, V 全部从 x 生成 ---
         qkv = self.qkv(x).reshape(B_, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
         q, k, v = qkv[0], qkv[1], qkv[2]
-        # --- 修改结束 ---
 
         q = q * self.scale
         attn = (q @ k.transpose(-2, -1))
@@ -360,18 +352,12 @@ class CrossSwinTransformerBlock(nn.Module):
 
         self.norm1 = norm_layer(dim)
         
-        # --- 修改点: 实例化 CrossWindowAttention ---
         self.attn = CrossWindowAttention(
             dim, window_size=to_2tuple(self.window_size), num_heads=num_heads,
             qkv_bias=qkv_bias, qk_scale=qk_scale, attn_drop=attn_drop, proj_drop=drop)
-        # --- 修改结束 ---
 
         self.drop_path = DropPath(drop_path) if drop_path > 0. else nn.Identity()
         
-        # 为了代码完整性，这里保留MLP和norm2层，但在原始代码片段中它们被移除了
-        # self.norm2 = norm_layer(dim)
-        # mlp_hidden_dim = int(dim * mlp_ratio)
-        # self.mlp = Mlp(...) # 假设Mlp类已定义
 
         if self.shift_size > 0:
             # 计算注意力掩码
@@ -411,9 +397,7 @@ class CrossSwinTransformerBlock(nn.Module):
         B, H, W, C = x.shape
         x = self.norm1(x.view(B, H * W, C)).view(B, H, W, C)
         
-        # --- 修改点: 对 ref 执行相同的操作 ---
         ref = self.norm1(ref.view(B, H * W, C)).view(B, H, W, C)
-        # --- 修改结束 ---
 
         # 循环移位
         if self.shift_size > 0:
@@ -600,12 +584,6 @@ class CrossCAB(nn.Module):
 
 
 class ModulatedSpatialSpectralFusion(nn.Module):
-    """
-    一个受 S3Conv 和 SM-FFN 启发的调制融合模块 (MSSFusion)。
-    该模块通过并行的"值"(Value)和"门"(Gate)分支来融合两个特征。
-    每个分支内部都采用了空间(深度可分离)和光谱(逐点)卷积的分离思想，
-    以实现高效且强大的特征交互。
-    """
     def __init__(self, c_in):
         # c_in 即为 dim_stage // 2
         super().__init__()
