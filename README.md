@@ -129,6 +129,10 @@ data/
 The default `.mat` key is `gt`. The LR HSI is generated on the fly by the
 degradation module according to the scale factor in the config.
 
+The misregistration of the RGB reference in ICVL is achieved by adjusting the pose of the virtual camera to control the generation of new viewpoints, as referred to [MPI-Flow](https://github.com/Sharpiless/MPI-Flow) and [SSC-HSR](https://github.com/yingkai-zhang/SSC-HSR). 
+
+The generated RGB reference of ICVL used in paper experiments is available [here](https://drive.google.com/drive/folders/1R1opToi7IU1xHgmjGiJG7CGYTryGvmW-?usp=sharing).
+
 ## Training
 
 Prepare a config file under the corresponding experiment directory. For example,
@@ -166,6 +170,15 @@ If you find our work useful for your research, please consider citing the follow
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   pages={41573--41583},
   year={2026}
+}
+
+@article{zhang2025unaligned,
+  title={Unaligned RGB Guided Hyperspectral Image Super-Resolution with Spatial-Spectral Concordance},
+  author={Zhang, Yingkai and Lai, Zeqiang and Zhang, Tao and Fu, Ying and Zhou, Chenghu},
+  journal={International Journal of Computer Vision},
+  pages={1--21},
+  year={2025},
+  publisher={Springer}
 }
 ```
 
